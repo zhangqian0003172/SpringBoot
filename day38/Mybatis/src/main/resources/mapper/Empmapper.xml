@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.dao.EmpMapper">
+    <!--提取SQL片段 提高复用性-->
+    <sql id="cols">id,ename,job,hiredate,mgr,sal,comm,deptno</sql>
+    <select id="getAll" resultType="cn.tedu.pojo.Emp">select <include refid="cols"/> from emp</select>
+    <select id="getByid" resultType="cn.tedu.pojo.Emp">
+        select <include refid="cols"/> from emp where
+            <if test="id!=null">
+                id = #{id}
+            </if>
+    </select>
+    <select id="getByIdEname" resultType="cn.tedu.pojo.Emp">
+        select <include refid="cols"/> from emp
+            <where>
+                <if test="id != null">id=#{id}</if>
+                <if test="ename != null"> and ename= #{ename}</if>
+            </where>
+    </select>
+    <select id="getByIds" resultType="cn.tedu.pojo.Emp">
+        select <include refid="cols"/>
+        from emp
+            <where>
+                id in(
+                /*foreach标签完成遍历
+                collection的值是固定写法
+                separator是数据间里的分隔符
+                item是取到的数据*/
+                <foreach collection="list" separator="," item="i">
+                    #{i}
+                </foreach>
+                )
+            </where>
+    </select>
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace的值 = 接口的全路径-->
+<mapper namespace="cn.tedu.dao.DeptMapper">
+    <!--查询dept表里的数据
+    id 是接口的方法名称
+    resultType 是类的全路径-->
+    <select id="getAll" resultType="cn.tedu.pojo.Dept">select * from dept</select>
+    <select id="getOne" resultType="cn.tedu.pojo.Dept">select * from dept where id=10</select>
+    <select id="getDname" resultType="cn.tedu.pojo.Dept">select * from dept where dname='开发'</select>
+    <select id="getByLoc" resultType="cn.tedu.pojo.Dept">select * from dept where loc=#{loc}</select>
+    <!--# 和 $  的区别 如果输入的是字符串#会自动拼接双引号 $不会-->
+    <select id="getById" resultType="cn.tedu.pojo.Dept">select * from dept where id=${id}</select>
+</mapper>

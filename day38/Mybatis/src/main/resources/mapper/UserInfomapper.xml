@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.dao.UserInfoMapper">
+<!--    <select id="getAll" resultType="cn.tedu.pojo.UserInfo">select * from user_info</select>-->
+    <!--resultMap用来解决属性名和字段名不一样时使用
+    id 是唯一标识
+    type 封装的类的全路径-->
+<!--    <resultMap id="userInfoRm" type="cn.tedu.pojo.UserInfo">-->
+<!--        &lt;!&ndash;id专门用来描述表里的主键信息-->
+<!--        column 用来指定表里的自动名-->
+<!--        property 用来指定类中的属性&ndash;&gt;-->
+<!--        <id property="id" column="id"></id>-->
+<!--        <result property="userName" column="user_name"></result>-->
+<!--        <result property="userAddr" column="user_addr"></result>-->
+<!--        <result property="userAge" column="user_age"></result>-->
+<!--    </resultMap>-->
+    <resultMap id="userInfoRm" type="cn.tedu.pojo.UserInfo" autoMapping="true"></resultMap>
+    <!--resultMap 用来完成特殊情况-->
+    <select id="getAll" resultMap="userInfoRm">select * from user_info</select>
+</mapper>

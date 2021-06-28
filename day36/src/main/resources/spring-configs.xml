@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+        <!--这个是spring核心的配置文件-->
+        <!--配置扫描器：扫描那些类上有注解，有注解的new
+        base-package用来指定要扫描的包的路径
+        Map(k,v)  k是类名 v是对象
+        -->
+        <context:component-scan base-package="cn.tedu"  />
+</beans>

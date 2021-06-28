@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--spring核心配置文件-->
+    <!-- bean用来把Hello类交给spring容器来管理
+    class用来描述类名的全路径
+    id是bean的唯一标识
+    spring容器里IOC的存了大量的bean
+    Map<String，Object>=={"hello"=new Hello(),"user"=new User()}-->
+    <bean class="cn.tedu.controller.Hello" id="hello"></bean>
+    <bean class="cn.tedu.User" id="user"></bean>
+
+</beans>

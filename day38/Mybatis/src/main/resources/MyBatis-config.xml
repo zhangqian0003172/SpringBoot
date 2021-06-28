@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- mybatis的核心配置文件 -->
+<configuration>
+<settings>
+    <!--开启驼峰规则-->
+    <setting name="mapUnderscoreToCamelCase" value="true" />
+</settings>
+    <environments default="test">
+        <environment id="test">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatisdb?characterEncoding=utf8&amp;serverTimezone=Asia/Shanghai" />
+                <property name="username" value="root"/>
+                <property name="password" value="ioot"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mapper/UserMapper.xml"/>
+        <mapper resource="mapper/EmpMapper.xml"/>
+        <mapper resource="mapper/DeptMapper.xml"/>
+        <mapper resource="mapper/UserInfoMapper.xml"/>
+    </mappers>
+</configuration>
